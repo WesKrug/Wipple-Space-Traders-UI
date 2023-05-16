@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "./Navbar";
+import { Navbar } from "../Navbar";
 
 interface Props {
   children: JSX.Element;
@@ -7,7 +7,7 @@ interface Props {
 
 export default function Layout({ children }: Props) {  
   return (
-    <div className={`@grid @h-full @relative`}>
+    <div className="@h-screen">
       <Navbar />
       <main className="@flex @justify-center @items-center">{children}</main>
     </div>
