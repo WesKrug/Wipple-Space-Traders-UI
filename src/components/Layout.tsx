@@ -1,22 +1,15 @@
 import React from "react";
 import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
 
 interface Props {
-  footer?: boolean;
   children: JSX.Element;
 }
 
-export default function Layout({ footer, children }: Props) {
+export default function Layout({ children }: Props) {
   return (
-    <div
-      className={`@grid @h-full @relative layout ${
-        footer ? "withFooter" : "noFooter"
-      }`}
-    >
+    <div className={`@grid @h-full @relative`}>
       <Navbar />
-      <main className="@flex @justify-center @items-center">{children}</main>
-      {footer && <Footer />}
+        <main className="@flex @justify-center @items-center">{children}</main>
     </div>
   );
 }
