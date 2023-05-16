@@ -18,6 +18,9 @@ export function Navbar() {
           <Link className="@px-3" href="/agent">
             <p>Agent</p>
           </Link>
+          <Link className="@px-3" href="/waypoint">
+            <p>Waypoints</p>
+          </Link>
         </div>
         
         <div className="">
