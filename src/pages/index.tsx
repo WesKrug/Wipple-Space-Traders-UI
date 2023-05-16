@@ -1,4 +1,4 @@
-import ContentPane from "@/components/atoms/ContentPane";
+import ContentPane from "@/components/organisms/ContentPane";
 
 export default function IndexPage() {
   return (

@@ -11,7 +11,7 @@ interface Props {
     <section>
       <Container className="@p-4">
         <Card className="@bg-blue-500 ">
-            <h1 className="@text-center">{title}</h1>
+          <h1 className="@text-center">{title}</h1>
           <Card.Body>
             {children}
           </Card.Body>

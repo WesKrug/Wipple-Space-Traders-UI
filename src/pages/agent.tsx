@@ -1,4 +1,4 @@
-import ContentPane from "@/components/atoms/ContentPane";
+import ContentPane from "@/components/organisms/ContentPane";
 import { useSpaceTrader } from "@/context/SpaceTraderContext";
 import { Card, Container } from "@nextui-org/react";
 
@@ -30,6 +30,10 @@ const AgentPage = () => {
       <button className="@mt-4 @w-48 @bg-blue-500 @rounded-lg @text-center hover:@bg-blue-900" >
         <p>Get Agent</p>
       </button>
+      <ContentPane>
+        <pre>{JSON.stringify(agent,null,2)}</pre>
+      </ContentPane>
+
     </div>
   );
 }

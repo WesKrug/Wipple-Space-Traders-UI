@@ -1,9 +1,4 @@
-import ContentPane from "@/components/atoms/ContentPane";
-import { useSpaceTrader } from "@/context/SpaceTraderContext";
-import { getWaypointAsync } from "@/utils/spaceTradersApi";
-import axios from "axios";
-import { useState } from "react";
-import { WaypointType } from "spacetraders-sdk";
+import ContentPane from "@/components/organisms/ContentPane";
 import {
     Waypoint
   } from 'spacetraders-sdk'

@@ -4,8 +4,10 @@ import {
     AgentsApi,
     SystemsApi,
     Waypoint,
+    Faction,
   } from 'spacetraders-sdk'
 import axios from "axios";
+import { FactionsApi } from "spacetraders-sdk";
   
 const configuration = new Configuration({
     basePath: process.env.NEXT_PUBLIC_BASE_PATH,
@@ -33,4 +35,10 @@ export async function getWaypointAsync(system: string, waypoint: string): Promis
     const systemsApi = new SystemsApi(configuration, undefined, instance)
     const waypointResposne = await systemsApi.getWaypoint(system, waypoint)
     return waypointResposne.data.data
+}
+
+export async function getAgentFactionAsync(): Promise<Faction[]> {
+    const factionsApi = new FactionsApi(configuration, undefined, instance)
+    const factionResponse = await factionsApi.getFactions()
+    return factionResponse.data.data
 }

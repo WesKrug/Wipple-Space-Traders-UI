@@ -1,5 +1,6 @@
-import ContentPane from "@/components/atoms/ContentPane";
-import WaypointCard from "@/components/atoms/WaypointCard";
+import ContentPane from "@/components/organisms/ContentPane";
+import { TooltipChip } from "@/components/molecules/Tooltip";
+import WaypointCard from "@/components/molecules/WaypointCard";
 import { useSpaceTrader } from "@/context/SpaceTraderContext";
 import { getWaypointAsync } from "@/utils/spaceTradersApi";
 import { useState } from "react";
@@ -34,9 +35,10 @@ const WaypointPage = () => {
         <p>Get Waypoint</p>
       </button>
       {waypoint && <WaypointCard waypoint={waypoint}></WaypointCard>}
-      {/* <ContentPane>
-        <pre>{JSON.stringify(waypoint,null,2)}</pre>
-      </ContentPane> */}
+
+        {/* <ContentPane>
+          <pre>{JSON.stringify(waypoint,null,2)}</pre>
+        </ContentPane> */}
     </div>
   );
 }
