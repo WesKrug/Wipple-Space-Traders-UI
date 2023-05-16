@@ -4,10 +4,10 @@ import { SpaceTraderProvider } from "@/context/SpaceTraderContext";
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <SpaceTraderProvider>
-        <Component {...pageProps} />
-      </SpaceTraderProvider>
-    </Layout>
+    <SpaceTraderProvider>
+      <Layout>
+          <Component {...pageProps} />
+      </Layout>
+    </SpaceTraderProvider>
   );
 }

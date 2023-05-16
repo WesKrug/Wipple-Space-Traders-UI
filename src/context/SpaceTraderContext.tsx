@@ -1,6 +1,5 @@
 import { AgentData, AgentResponse } from "@/types/AgentTypes"
-import { AxiosRequestConfig } from "axios"
-import useAxios from "axios-hooks"
+import { getAgentAsync } from "@/utils/spaceTradersApi"
 import { ReactNode, createContext, useContext, useState } from "react"
 
 type SpaceTraderContextType = {
@@ -35,6 +34,10 @@ export function SpaceTraderProvider({children}: ProviderProps) {
         setAgentData(agent)
     }
 
+    if (!agentData) {
+        getAgentAsync().then((resp) => {setAgentData(resp)})
+    }
+    
     const value = {
         agent: agentData,
         setAgent
