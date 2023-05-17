@@ -27,7 +27,7 @@ const WaypointCard = ({waypoint}: Props) => {
         <ContentPane title="Waypoint Information">
             <div className="@flex @flex-col">
                 <div className="@flex @justify-between @my-2">
-                    <div className="@font-bold">
+                    <div className="@font-bold @mr-4">
                         Symbol:  
                     </div>
                     <div className=" @text-right ">
@@ -51,7 +51,7 @@ const WaypointCard = ({waypoint}: Props) => {
                     </div>
                 </div>
                 {/*Orbiatls*/}
-                <div className="@flex @my-2">
+                { !!waypoint.orbitals.length && <div className="@flex @my-2">
                   <div className="@font-bold">
                     Orbitals:                    
                   </div>
@@ -64,8 +64,10 @@ const WaypointCard = ({waypoint}: Props) => {
                     )
                   })}
                 </div>
+                }
                 {/*Traits*/}
-                <div className="@flex @my-2">
+                { !!waypoint.traits.length &&
+                  <div className="@flex @my-2">
                   <div className="@font-bold @self-center">
                     Traits:                    
                   </div>
@@ -76,6 +78,7 @@ const WaypointCard = ({waypoint}: Props) => {
                     )
                   })}
                 </div>
+                }
             </div>
         </ContentPane>
       </div>

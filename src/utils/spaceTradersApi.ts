@@ -1,4 +1,4 @@
-import { AgentData, AgentResponse } from "@/types/AgentTypes";
+import { AgentData } from "@/types/AgentTypes";
 import {
     Configuration,
     AgentsApi,
@@ -33,7 +33,17 @@ export async function getAgentAsync(): Promise<AgentData> {
     return agentResponse.data.data
 }
 
-export async function getWaypointAsync(system: string, waypoint: string): Promise<Waypoint> {
+export async function getSystemWaypointsAsync(systemSymbol: string) {
+    const systemsApi = new SystemsApi(configuration, undefined, instance)
+    const systemWaypointsResponse = await systemsApi.getSystemWaypoints(systemSymbol)
+    return systemWaypointsResponse.data.data
+}
+
+export async function getWaypointAsync(wayPointSymbol: string): Promise<Waypoint> {
+    const parts = wayPointSymbol.split('-')
+    const system = parts[0]+'-'+parts[1]
+    const waypoint = parts[0]+'-'+parts[1]+'-'+parts[2]
+
     const systemsApi = new SystemsApi(configuration, undefined, instance)
     const waypointResposne = await systemsApi.getWaypoint(system, waypoint)
     return waypointResposne.data.data
@@ -54,5 +64,11 @@ export async function getContractsAsync(): Promise<Contract[]> {
 export async function acceptContractAsync(id: string) {
     const contractsApi = new ContractsApi(configuration, undefined, instance)
     const contractsResponse = await contractsApi.acceptContract(id)
+    return contractsResponse.data.data
+}
+
+export async function getContractAsync(id: string): Promise<Contract> {
+    const contractsApi = new ContractsApi(configuration, undefined, instance)
+    const contractsResponse = await contractsApi.getContract(id)
     return contractsResponse.data.data
 }

@@ -1,6 +1,5 @@
 import ContentPane from "@/components/organisms/ContentPane";
-import { AcceptContract200ResponseData, Contract, Faction } from 'spacetraders-sdk'
-import { TooltipChip } from "../molecules/Tooltip";
+import { AcceptContract200ResponseData, Contract } from 'spacetraders-sdk'
 import { Button } from "@nextui-org/react";
 import { acceptContractAsync } from "@/utils/spaceTradersApi";
 import { useState } from "react";
@@ -26,6 +25,14 @@ const ContractCard = ({contract}: Props) => {
       <div className="@flex-col">
         <ContentPane title="Contract Information">
             <div className="@flex @flex-col @w-[25vw]">
+            <div className="@flex @justify-between @my-2">
+                    <div className="@font-bold">
+                        Id:  
+                    </div>
+                    <div className=" @text-right ">
+                      {contract.id}
+                    </div>
+                </div>
                 <div className="@flex @justify-between @my-2">
                     <div className="@font-bold">
                         Faction:  

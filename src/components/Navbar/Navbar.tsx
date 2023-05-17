@@ -21,6 +21,9 @@ export function Navbar() {
           <Link className="@px-3" href="/waypoint">
             <p>Waypoints</p>
           </Link>
+          <Link className="@px-3" href="/systems">
+            <p>Systems</p>
+          </Link>
           <Link className="@px-3" href="/factions">
             <p>Factions</p>
           </Link>
@@ -29,8 +32,13 @@ export function Navbar() {
           </Link>
         </div>
         
-        <div className="">
-          {agent?.symbol}
+        <div className="@flex @justify-end">
+          <div className="@mx-2">
+            {agent?.symbol}
+          </div>
+          <div className="@mx-2">
+            {agent?.headquarters}
+          </div>
         </div>
       </nav>
     </header>
