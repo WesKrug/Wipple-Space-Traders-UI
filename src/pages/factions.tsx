@@ -1,18 +1,18 @@
 import ContentPane from "@/components/organisms/ContentPane";
 import FactionCard from "@/components/organisms/FactionCard";
 import { useSpaceTrader } from "@/context/SpaceTraderContext";
-import { getAgentFactionAsync } from "@/utils/spaceTradersApi";
+import { getAgentFactionsAsync } from "@/utils/spaceTradersApi";
 import { Card, Container } from "@nextui-org/react";
 import { useState } from "react";
 import { Faction } from "spacetraders-sdk";
 
 const FactionPage = () => {
   const {agent} = useSpaceTrader()
-  const [factions, setWaypoint] = useState<Faction[]>()
+  const [factions, setFactions] = useState<Faction[]>()
 
   const handleGetFactions = async () => {
-    const factionResponse = await getAgentFactionAsync()
-    setWaypoint(factionResponse)
+    const factionResponse = await getAgentFactionsAsync()
+    setFactions(factionResponse)
   }
 
   // const handleInputUpdated = (e: any) => {

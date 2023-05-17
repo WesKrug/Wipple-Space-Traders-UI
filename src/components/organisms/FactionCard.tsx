@@ -6,7 +6,7 @@ import { TooltipChip } from "../molecules/Tooltip";
 interface Props {
     faction: Faction;
   }
-const WaypointCard = ({faction}: Props) => {
+const FactionCard = ({faction}: Props) => {
   return (
     <div>
       <div className="@flex-col">
@@ -55,6 +55,6 @@ const WaypointCard = ({faction}: Props) => {
   );
 }
 
-export default WaypointCard
+export default FactionCard
   
 
