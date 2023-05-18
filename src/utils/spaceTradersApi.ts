@@ -10,6 +10,7 @@ import {
 import axios from "axios";
 import { FactionsApi } from "spacetraders-sdk";
 import { ContractsApi } from "spacetraders-sdk";
+import { FleetApi } from "spacetraders-sdk";
   
 const configuration = new Configuration({
     basePath: process.env.NEXT_PUBLIC_BASE_PATH,
@@ -71,4 +72,9 @@ export async function getContractAsync(id: string): Promise<Contract> {
     const contractsApi = new ContractsApi(configuration, undefined, instance)
     const contractsResponse = await contractsApi.getContract(id)
     return contractsResponse.data.data
+}
+
+export async function purchaseShipAsync() {
+    const shipsApi = new FleetApi(configuration, undefined, instance)
+    shipsApi.purchaseShip
 }

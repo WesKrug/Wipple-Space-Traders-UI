@@ -21,10 +21,14 @@ interface Props {
     waypoint: Waypoint;
   }
 const WaypointCard = ({waypoint}: Props) => {
+
+  const getLink = (): string => {
+    return `waypoint/${waypoint.symbol}`
+  }
   return (
     <div>
       <div className="@flex-col">
-        <ContentPane title="Waypoint Information">
+        <ContentPane title="Waypoint Information" link={getLink()}>
             <div className="@flex @flex-col">
                 <div className="@flex @justify-between @my-2">
                     <div className="@font-bold @mr-4">

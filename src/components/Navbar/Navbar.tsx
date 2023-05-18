@@ -8,7 +8,7 @@ export function Navbar() {
     <header className="@w-full @relative @z-30">
       <Head>
         <title>Wipple's Space Traders UI</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo-over-black.svg" />
       </Head>
       <nav className="@flex @h-full @justify-between @bg-gray-800 @mx-auto @px-3">
         <div className="@flex">
@@ -17,6 +17,9 @@ export function Navbar() {
           </Link>
           <Link className="@px-3" href="/agent">
             <p>Agent</p>
+          </Link>
+          <Link className="@px-3" href="/ships">
+            <p>Ships</p>
           </Link>
           <Link className="@px-3" href="/waypoint">
             <p>Waypoints</p>
