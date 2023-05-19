@@ -1,6 +1,5 @@
 import ContentPane from "@/components/organisms/ContentPane";
 import { useSpaceTrader } from "@/context/SpaceTraderContext";
-import { Card, Container } from "@nextui-org/react";
 
 const AgentPage = () => {
   const {agent} = useSpaceTrader()

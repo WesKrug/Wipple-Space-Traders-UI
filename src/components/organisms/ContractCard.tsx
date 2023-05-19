@@ -1,6 +1,5 @@
 import ContentPane from "@/components/organisms/ContentPane";
 import { AcceptContract200ResponseData, Contract } from 'spacetraders-sdk'
-import { Button } from "@nextui-org/react";
 import { acceptContractAsync } from "@/utils/spaceTradersApi";
 import { useState } from "react";
 
@@ -137,7 +136,7 @@ const ContractCard = ({contract}: Props) => {
                 {!contract.accepted && 
                 <section className="@mt-4 @self-center">
                     <div>
-                        <Button className="@bg-blue-600" onClick={handleAcceptContract}>Accept Contract?</Button>
+                        <button className="@bg-blue-600" onClick={handleAcceptContract}>Accept Contract?</button>
                     </div>
                 </section>}
 

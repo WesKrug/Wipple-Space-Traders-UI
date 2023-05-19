@@ -1,6 +1,6 @@
 import ContentPane from "@/components/organisms/ContentPane";
 import { Faction } from 'spacetraders-sdk'
-import { TooltipChip } from "../molecules/Tooltip";
+import { TooltipChip } from "../molecules/TooltipChip";
 
 interface Props {
     faction: Faction;

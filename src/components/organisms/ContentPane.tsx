@@ -1,4 +1,3 @@
-import { Card, Container } from "@nextui-org/react";
 import Link from "next/link";
 
 interface Props {
@@ -11,17 +10,17 @@ interface Props {
   
   return (
     <section>
-      <Container className="@p-4">
-        <Card className="@bg-blue-500 ">
-          <section className="@flex @justify-center">
+      <div className="@p-4 @m-4">
+        <div className="@flex @flex-col @justify-between @bg-blue-500 @m-4 @p-4 @border-gray-100 @border-2 @rounded-lg">
+          <section className="@flex @flex-row @pr-2 @mb-2 @justify-center">
             {title && <h1 className="@text-center">{title}</h1>}
             {link && <h1><Link href={link}>🔗</Link></h1>}
           </section>
-          <Card.Body>
+          <div>
             {children}
-          </Card.Body>
-        </Card>
-      </Container>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

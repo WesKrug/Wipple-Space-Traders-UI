@@ -2,7 +2,6 @@ import ContentPane from "@/components/organisms/ContentPane";
 import FactionCard from "@/components/organisms/FactionCard";
 import { useSpaceTrader } from "@/context/SpaceTraderContext";
 import { getAgentFactionsAsync } from "@/utils/spaceTradersApi";
-import { Card, Container } from "@nextui-org/react";
 import { useState } from "react";
 import { Faction } from "spacetraders-sdk";
 

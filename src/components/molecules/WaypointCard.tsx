@@ -2,7 +2,7 @@ import ContentPane from "@/components/organisms/ContentPane";
 import {
     Waypoint
   } from 'spacetraders-sdk'
-import { TooltipChip } from "./Tooltip";
+import { TooltipChip } from "./TooltipChip";
 
 const WAYPOINT_TYPE_EMOJI = 
 {
