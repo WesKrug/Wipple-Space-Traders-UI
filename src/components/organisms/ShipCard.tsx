@@ -38,14 +38,12 @@ export default function ShipCard({ ship }: Props) {
                 <p>{ship.nav.route.departure.symbol}</p>
                 <label className="@font-bold">Destination System: </label>
                 <p>{ship.nav.waypointSymbol}</p>
-
               </div>
 
               <label className="@font-bold">Status</label>
               <p>{ship.nav.status}</p>
               <label className="@font-bold">Flight Mode</label>
               <p>{ship.nav.flightMode}</p>
-
             </div>
           </ContentPane>
           <label>Fuel Level</label>

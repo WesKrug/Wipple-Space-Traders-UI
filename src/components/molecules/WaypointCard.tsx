@@ -72,16 +72,16 @@ const WaypointCard = ({waypoint}: Props) => {
                 {/*Traits*/}
                 { !!waypoint.traits.length &&
                   <div className="@flex @my-2">
-                  <div className="@font-bold @self-center">
-                    Traits:                    
-                  </div>
-                  {
-                  waypoint.traits.map((trait,index) => {
-                    return (
-                    <TooltipChip key={index} tooltipText={trait.description} chipText={trait.name}/>
-                    )
-                  })}
-                </div>
+                    <div className="@font-bold @self-center">
+                      Traits:                    
+                    </div>
+                    {
+                    waypoint.traits.map((trait,index) => {
+                      return (
+                      <TooltipChip key={index} tooltipText={trait.description} chipText={trait.name}/>
+                      )
+                    })}
+              </div>
                 }
             </div>
         </ContentPane>

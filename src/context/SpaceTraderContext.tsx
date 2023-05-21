@@ -47,4 +47,3 @@ export function SpaceTraderProvider({ children }: ProviderProps) {
     </SpaceTraderContext.Provider>
   );
 }
-

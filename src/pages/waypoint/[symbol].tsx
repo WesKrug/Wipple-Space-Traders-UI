@@ -118,7 +118,7 @@ export default function WaypointDetailsPage() {
                 <div>
                 <div className="@flex @flex-col @my-2 ">
                   <div className="@font-bold @self-center">
-                    Available Ship Types:                    
+                    Available Ship Types:                
                   </div>
                   {
                   shipyard.shipTypes.map((shipType,index) => {

@@ -2,7 +2,6 @@ export default function ProgressBar({ currentValue, maxValue }: { currentValue: 
   const progress = (currentValue / maxValue) * 100;
   const width = progress + '%';
 
-
   const generateVerticalLines = () => {
     const lines = [];
     for (let i = 10; i < 100; i += 10) {

@@ -33,6 +33,10 @@ export function Navbar() {
           <Link className="@px-3" href="/contracts">
             <p>Contracts</p>
           </Link>
+          <Link className="@px-3" href="/fleetManager">
+            <p>Fleet</p>
+          </Link>
+
         </div>
         
         <div className="@flex @justify-end">
