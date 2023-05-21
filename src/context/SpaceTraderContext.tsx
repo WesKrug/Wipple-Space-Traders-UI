@@ -1,53 +1,50 @@
-import { AgentData, AgentResponse } from "@/types/AgentTypes"
 import { getAgentAsync } from "@/utils/spaceTradersApi"
 import { ReactNode, createContext, useContext, useState } from "react"
+import { Agent, Ship } from "spacetraders-sdk"
 
 type SpaceTraderContextType = {
-    agent: AgentData | undefined
-    setAgent: (agent: AgentData | undefined) => void
+  agent: Agent | undefined
+  setAgent: (agent: Agent | undefined) => void
+  selectedShip: Ship | undefined;
+  setSelectedShip: (ship: Ship | undefined) => void;
+
 }
 
 const spaceTraderContextDefaultValues: SpaceTraderContextType = {
-    agent: {
-        accountId: "",
-        symbol: "",
-        headquarters: "",
-        credits: 0
-    },
-    setAgent: () => {}
+  agent: undefined,
+  setAgent: () => { },
+  selectedShip: undefined,
+  setSelectedShip: () => { }
 }
 
 const SpaceTraderContext = createContext<SpaceTraderContextType>(spaceTraderContextDefaultValues)
 
 export function useSpaceTrader() {
-    return useContext(SpaceTraderContext)
+  return useContext(SpaceTraderContext)
 }
 
 type ProviderProps = {
-    children: ReactNode;
+  children: ReactNode;
 };
 
-export function SpaceTraderProvider({children}: ProviderProps) {
-    const [agentData, setAgentData] = useState<AgentData>()
+export function SpaceTraderProvider({ children }: ProviderProps) {
+  const [agent, setAgent] = useState<Agent | undefined>()
+  const [selectedShip, setSelectedShip] = useState<Ship | undefined>()
 
-    const setAgent = (agent: AgentData | undefined) => {
-        setAgentData(agent)
-    }
+  if (!agent) {
+    getAgentAsync().then((resp) => { setAgent(resp) })
+  }
 
-    if (!agentData) {
-        getAgentAsync().then((resp) => {setAgentData(resp)})
-    }
-    
-    const value = {
-        agent: agentData,
-        setAgent
-    }
-    return (
-        <>
-            <SpaceTraderContext.Provider value={value}>
-                {children}
-            </SpaceTraderContext.Provider>
-        </>
-    );
+  const value = {
+    agent,
+    setAgent,
+    selectedShip,
+    setSelectedShip
+  }
+  return (
+    <SpaceTraderContext.Provider value={value}>
+      {children}
+    </SpaceTraderContext.Provider>
+  );
 }
 

@@ -6,7 +6,7 @@ import { useSpaceTrader } from "@/context/SpaceTraderContext";
 import { ShipType } from "spacetraders-sdk";
 import ShipCard from "@/components/organisms/ShipCard";
 
-const ShipsPage = () => {
+export default function FleetManagerPage() {
   const {agent} = useSpaceTrader()
   const [ships, setShips] = useState<Ship[]>([])
 
@@ -32,6 +32,4 @@ const ShipsPage = () => {
     </div>
   );
 }
-
-export default ShipsPage
   
