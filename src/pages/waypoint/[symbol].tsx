@@ -2,7 +2,7 @@ import ContentPane from "@/components/organisms/ContentPane";
 import WaypointCard from "@/components/molecules/WaypointCard";
 import { getShipyardAsync, getWaypointAsync, purchaseShipAsync } from "@/utils/spaceTradersApi";
 import { useEffect, useState } from "react";
-import { ShipType, Shipyard, ShipyardShipTypesInner, Waypoint } from 'spacetraders-sdk'
+import { ShipType, Shipyard, ShipyardShipTypesInner, Waypoint, WaypointTraitSymbolEnum } from 'spacetraders-sdk'
 import { useRouter } from "next/router";
 import { TooltipChip } from "@/components/molecules/TooltipChip";
 
@@ -25,6 +25,7 @@ export default function WaypointDetailsPage() {
 
   useEffect(() => {
     if (!router.isReady || shipyard) return
+    if (!waypoint?.traits.find((trait) => trait.symbol == WaypointTraitSymbolEnum.Shipyard)) return
     getShipyardAsync(router.query.symbol as string).then((resp) => { setShipyard(resp) })
   }, [pageSection])
 
@@ -102,7 +103,9 @@ export default function WaypointDetailsPage() {
           {
           waypoint?.traits.map((trait,index) => {
             return (
-            <TooltipChip key={index} tooltipText={trait.description} chipText={trait.name}/>
+            <TooltipChip key={index} chipText={trait.name}>
+              <div>{trait.description}</div>
+            </TooltipChip>
             )
           })}
         </div>

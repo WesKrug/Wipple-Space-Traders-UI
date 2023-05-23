@@ -17,7 +17,6 @@ export default function FleetManagerPage() {
 
   return (
     <div className="@flex @flex-col @items-center @mx-10">
-      <ContentPane title="Ship Manager">
         <div className="">
           <div className="@mb-3 @pt-0">
             {ships && ships.map((ship, index) => {
@@ -28,7 +27,6 @@ export default function FleetManagerPage() {
             {/* <pre>{JSON.stringify(ships,undefined,4)}</pre> */}
           </div>
         </div>
-      </ContentPane>
     </div>
   );
 }

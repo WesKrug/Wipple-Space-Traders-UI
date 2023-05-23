@@ -97,6 +97,11 @@ export async function getShipsAsync(): Promise<Ship[]> {
   return response.data.data
 }
 
+export async function getShipAsync(shipSymbol: string): Promise<Ship> {
+  const response = await fleetApi.getMyShip(shipSymbol)
+  return response.data.data
+}
+
 export async function purchaseShipAsync(shipType: ShipType, waypointSymbol: string) {
   const response = await fleetApi.purchaseShip({ shipType, waypointSymbol })
   return response.data.data
@@ -107,8 +112,13 @@ export async function getShipyardAsync(waypointSymbol: string): Promise<Shipyard
   const system = parts[0] + '-' + parts[1]
   const waypoint = parts[0] + '-' + parts[1] + '-' + parts[2]
 
-  const shipyardResponse = await executeRequest(() => systemsApi.getShipyard(system, waypoint))
+  const shipyardResponse = await systemsApi.getShipyard(system, waypoint)
   return shipyardResponse.data.data
+}
+
+export async function navigateShipToWaypoint(shipSymbol: string, waypointSymbol: string) {
+  const resp = await executeRequest(() => fleetApi.navigateShip(shipSymbol, {waypointSymbol}))
+  return resp
 }
 
 export async function extractResource(shipSymbol: string) {

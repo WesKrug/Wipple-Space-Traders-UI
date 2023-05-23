@@ -3,6 +3,7 @@ import WaypointCard from "@/components/molecules/WaypointCard";
 import { getSystemWaypointsAsync } from "@/utils/spaceTradersApi";
 import { useState } from "react";
 import { Waypoint } from 'spacetraders-sdk'
+import { Button } from "@mui/material";
 
 const SystemsPage = () => {
   const [systemWaypoints, setSystemWaypoints] = useState<Waypoint[]>()
@@ -20,7 +21,7 @@ const SystemsPage = () => {
   }
 
   return (
-    <div className="@flex @flex-col @items-center @mx-10">
+    <div className="@flex @flex-col @items-center @mx-10 @overflow-auto">
       <ContentPane title="System Information">
         <div className="@w-96">
           <div className="@mb-3 @pt-0">
@@ -28,10 +29,10 @@ const SystemsPage = () => {
         </div>
         </div>
       </ContentPane>
-      <button className="@mt-4 @w-48 @bg-blue-500 @rounded-lg @text-center hover:@bg-blue-900" onClick={handleGetWaypoint}>
+      <Button onClick={handleGetWaypoint}>
         <p>Get Waypoint</p>
-      </button>
-      <div className="@flex @flex-wrap">
+      </Button>
+      <div className="@grid @grid-cols-3">
       {systemWaypoints && systemWaypoints.map((systemWaypoint,index) => {
         return (<WaypointCard key={index} waypoint={systemWaypoint}/>)
         }
